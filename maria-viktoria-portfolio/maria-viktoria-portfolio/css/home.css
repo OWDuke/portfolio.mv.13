@@ -6,11 +6,12 @@
   <title>Maria-Viktoria — Junior UX/UI Designer</title>
   <meta name="description" content="Junior UX/UI Designer based in Kyiv. Studying at KAMA school — and already building real things." />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+    @import url('https://fonts.bunny.net/css?family=outfit:300,400,600&display=swap');
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Outfit', sans-serif;
+      font-family: 'Outfit', 'DM Sans', 'Inter', 'Helvetica Neue', Arial, sans-serif;
       background: #fff;
       color: #000;
       overflow-x: hidden;
@@ -18,7 +19,6 @@
     }
     a { color: inherit; text-decoration: none; }
 
-    /* NAV */
     .nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -30,189 +30,7 @@
       padding: 0 80px;
       justify-content: space-between;
     }
-    .nav__logo {
-      font-size: 24px;
-      font-weight: 400;
-      color: #3d3d3d;
-    }
-    .nav__links {
-      display: flex;
-      gap: 80px;
-      list-style: none;
-    }
-    .nav__links a {
-      font-size: 24px;
-      font-weight: 400;
-      color: #3d3d3d;
-    }
-    .nav__links a:hover { color: #000; }
-    .nav__hamburger { display: none; }
-
-    /* HERO */
-    .hero {
-      padding-top: 80px;
-      min-height: 100vh;
-      padding-left: 80px;
-      padding-right: 80px;
-      padding-bottom: 80px;
-      position: relative;
-    }
-
-    /* INITIALS */
-    .initials {
-      display: flex;
-      align-items: center;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 600;
-      font-size: clamp(120px, 27vw, 400px);
-      line-height: 1;
-      color: #000;
-      user-select: none;
-      padding-top: clamp(40px, 5vw, 80px);
-    }
-    .initials__letter { letter-spacing: -0.02em; }
-    .initials__dash {
-      display: inline-block;
-      /* size relative to font */
-      width:  0.19em;
-      height: 0.06em;
-      background: #000;
-      margin: 0 0.05em;
-      flex-shrink: 0;
-      /* optical center: Outfit cap-height ~72% → caps center at ~0.36em above baseline
-         flex align-items:center aligns to element center → shift up slightly */
-      margin-bottom: 0.15em;
-    }
-
-    /* ROLE */
-    .hero__role {
-      position: absolute;
-      top: calc(80px + clamp(40px, 5vw, 80px));
-      right: 80px;
-      font-size: clamp(20px, 2.5vw, 36px);
-      font-weight: 400;
-      color: #3d3d3d;
-    }
-
-    /* INTRO */
-    .hero__intro {
-      margin-top: clamp(40px, 4vw, 60px);
-      font-size: clamp(28px, 3.8vw, 54px);
-      font-weight: 400;
-      color: #000;
-      line-height: 1.2;
-      max-width: 760px;
-    }
-
-    /* DETAIL */
-    .hero__detail {
-      position: absolute;
-      right: 80px;
-      bottom: 200px;
-      font-size: clamp(12px, 1vw, 15px);
-      font-weight: 300;
-      color: #3d3d3d;
-      text-align: right;
-      line-height: 1.7;
-    }
-
-    /* CTA */
-    .hero__cta {
-      display: inline-block;
-      margin-top: clamp(24px, 3vw, 40px);
-      font-size: 17px;
-      font-weight: 400;
-      color: #000;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      letter-spacing: 0.02em;
-    }
-
-    /* MOBILE */
-    @media (max-width: 1024px) {
-      .nav { padding: 0 40px; }
-      .nav__links { gap: 40px; }
-      .hero { padding-left: 40px; padding-right: 40px; }
-      .hero__role { right: 40px; }
-      .hero__detail { right: 40px; }
-    }
-
-    @media (max-width: 768px) {
-      .nav { padding: 0 20px; height: 64px; }
-      .nav__links { display: none; }
-      .nav__hamburger {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-        background: none;
-        border: none;
-        padding: 4px;
-      }
-      .nav__hamburger span {
-        display: block;
-        width: 24px;
-        height: 2px;
-        background: #000;
-      }
-      .hero {
-        padding-top: 64px;
-        padding-left: 20px;
-        padding-right: 20px;
-      }
-      .hero__role {
-        position: static;
-        margin-top: 12px;
-        font-size: clamp(16px, 4vw, 22px);
-        text-align: left;
-      }
-      .hero__detail {
-        position: static;
-        margin-top: 20px;
-        text-align: left;
-      }
-      .hero__intro { max-width: 100%; }
-    }
-  </style>
-</head>
-<body>
-
-  <nav class="nav">
-    <a href="index.html" class="nav__logo">MARIA-VIKTORIA</a>
-    <ul class="nav__links">
-      <li><a href="cases.html">CASES</a></li>
-      <li><a href="about.html">ABOUT</a></li>
-      <li><a href="contact.html">CONTACT</a></li>
-    </ul>
-    <button class="nav__hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <main class="hero">
-
-    <div class="initials" aria-label="M-V">
-      <span class="initials__letter">M</span>
-      <span class="initials__dash" aria-hidden="true"></span>
-      <span class="initials__letter">V</span>
-    </div>
-
-    <p class="hero__role">Junior UX/UI Designer</p>
-
-    <p class="hero__intro">Hello, I am Maria-Viktoria. I'm studying UX/UI design at KAMA school — and already building real things.</p>
-
-    <p class="hero__detail">Open to work · Based in Kyiv<br>Available for freelance &amp; full-time</p>
-
-    <a href="cases.html" class="hero__cta">VIEW MY WORK →</a>
-
-  </main>
-
-  <script>
-    const btn = document.querySelector('.nav__hamburger');
-    if (btn) btn.addEventListener('click', () => {
-      document.querySelector('.nav__links').style.display =
-        document.querySelector('.nav__links').style.display === 'flex' ? 'none' : 'flex';
-    });
-  </script>
-</body>
-</html>
+    .nav__logo { font-size: 24px; font-weight: 400; color: #3d3d3d; }
+    .nav__links { display: flex; gap: 80px; list-style: none; }
+    .nav__links a { font-size: 24px; font-weight: 400; color: #3d3d3d; }
+    .nav__links a:hov
