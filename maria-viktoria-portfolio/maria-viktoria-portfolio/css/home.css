@@ -17,13 +17,11 @@
 
 /* ── M — V initials ── */
 .home-hero__initials {
-  display: flex;
-  align-items: center;
-  line-height: 0.85;
-  font-weight: 600;
-  font-size: var(--fs-h1-home);
-  color: var(--color-text);
-  user-select: none;
+  <div style="display:flex; align-items:center; line-height:0.85; font-weight:600; font-size:clamp(120px,27vw,400px); color:#000; user-select:none;">
+  <span style="letter-spacing:-0.02em;">M</span>
+  <span style="display:inline-block; width:0.20em; height:0.06em; background:#000; margin:0 0.06em; flex-shrink:0; margin-top:0.08em;"></span>
+  <span style="letter-spacing:-0.02em;">V</span>
+</div>
 }
 
 .home-hero__m { letter-spacing: -0.02em; }
