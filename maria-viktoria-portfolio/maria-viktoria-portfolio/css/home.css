@@ -17,10 +17,9 @@
   padding-bottom: 80px;
 }
 
-/* ── M — V initials ── */
 .home-hero__initials {
   display: flex;
-  align-items: flex-end;
+  align-items: baseline;
   line-height: 0.85;
   font-weight: 600;
   font-size: var(--fs-h1-home);
@@ -30,18 +29,18 @@
 
 .home-hero__m { letter-spacing: -0.02em; }
 
-/* Tyre: підіймаємо через transform щоб стояло по центру капітальних літер */
 .home-hero__dash {
-  display: block;
-  width:  0.18em;
+  display: inline-block;
+  width: 0.18em;
   height: 0.055em;
   background: var(--color-text);
   margin: 0 0.05em;
   flex-shrink: 0;
-  /* Outfit cap-height ≈ 0.73em, so center of caps = -0.365em from baseline.
-     Dash center = -height/2. Offset = cap_center - dash_center ≈ -0.34em */
-  transform: translateY(-0.34em);
+  position: relative;
+  bottom: 0.28em;
 }
+
+.home-hero__v { letter-spacing: -0.02em; }
 
 .home-hero__v { letter-spacing: -0.02em; }
 
