@@ -1,11 +1,13 @@
 /* ── Home Page ── */
 
-.home-hero {
-  min-height: calc(100vh - var(--nav-height));
-  display: flex;
-  align-items: flex-start;
-  position: relative;
-  overflow: hidden;
+.home-hero__dash {
+  display: block;
+  width: 0.18em;
+  height: 0.055em;
+  background: var(--color-text);
+  margin: 0 0.05em;
+  flex-shrink: 0;
+  transform: translateY(-0.34em);
 }
 
 .home-hero__inner {
@@ -18,7 +20,7 @@
 /* ── M — V initials ── */
 .home-hero__initials {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   line-height: 0.85;
   font-weight: 600;
   font-size: var(--fs-h1-home);
