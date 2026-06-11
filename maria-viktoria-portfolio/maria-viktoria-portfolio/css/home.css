@@ -31,14 +31,12 @@
 /* Tyre: підіймаємо через transform щоб стояло по центру капітальних літер */
 .home-hero__dash {
   display: block;
-  width:  0.18em;
+  width: 0.18em;
   height: 0.055em;
   background: var(--color-text);
   margin: 0 0.05em;
   flex-shrink: 0;
-  /* Outfit cap-height ≈ 0.73em, so center of caps = -0.365em from baseline.
-     Dash center = -height/2. Offset = cap_center - dash_center ≈ -0.34em */
-  transform: translateY(-0.34em);
+  transform: translateY(-0.38em);
 }
 
 .home-hero__v { letter-spacing: -0.02em; }
@@ -62,7 +60,7 @@
   font-weight: var(--fw-regular);
   color: var(--color-text);
   line-height: 1.2;
-  max-width: 780px;
+  max-width: 55vw;
 }
 
 /* ── Small detail ── */
