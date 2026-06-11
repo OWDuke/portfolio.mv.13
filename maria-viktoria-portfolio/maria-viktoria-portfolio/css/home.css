@@ -30,13 +30,14 @@
 
 /* Tyre: підіймаємо через transform щоб стояло по центру капітальних літер */
 .home-hero__dash {
-  display: block;
+  display: inline-flex;
+  align-self: center;
   width: 0.18em;
   height: 0.055em;
   background: var(--color-text);
   margin: 0 0.05em;
   flex-shrink: 0;
-  transform: translateY(-0.38em);
+  margin-bottom: 0.25em;
 }
 
 .home-hero__v { letter-spacing: -0.02em; }
