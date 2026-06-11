@@ -1,115 +1,220 @@
-/* ── Home Page ── */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maria-Viktoria — Junior UX/UI Designer</title>
+  <meta name="description" content="Junior UX/UI Designer based in Kyiv. Studying at KAMA school — and already building real things." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #fff;
+      color: #000;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
 
-.home-hero {
-  min-height: calc(100vh - var(--nav-height));
-  display: flex;
-  align-items: flex-start;
-  position: relative;
-  overflow: hidden;
-}
+    /* NAV */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 80px;
+      background: #fff;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      padding: 0 80px;
+      justify-content: space-between;
+    }
+    .nav__logo {
+      font-size: 24px;
+      font-weight: 400;
+      color: #3d3d3d;
+    }
+    .nav__links {
+      display: flex;
+      gap: 80px;
+      list-style: none;
+    }
+    .nav__links a {
+      font-size: 24px;
+      font-weight: 400;
+      color: #3d3d3d;
+    }
+    .nav__links a:hover { color: #000; }
+    .nav__hamburger { display: none; }
 
-.home-hero__inner {
-  position: relative;
-  width: 100%;
-  padding-top: clamp(40px, 6vw, 100px);
-  padding-bottom: 80px;
-}
+    /* HERO */
+    .hero {
+      padding-top: 80px;
+      min-height: 100vh;
+      padding-left: 80px;
+      padding-right: 80px;
+      padding-bottom: 80px;
+      position: relative;
+    }
 
-/* ── M — V initials ── */
-.home-hero__initials {
-  <div style="display:flex; align-items:center; line-height:0.85; font-weight:600; font-size:clamp(120px,27vw,400px); color:#000; user-select:none;">
-  <span style="letter-spacing:-0.02em;">M</span>
-  <span style="display:inline-block; width:0.20em; height:0.06em; background:#000; margin:0 0.06em; flex-shrink:0; margin-top:0.08em;"></span>
-  <span style="letter-spacing:-0.02em;">V</span>
-</div>
-}
+    /* INITIALS */
+    .initials {
+      display: flex;
+      align-items: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: clamp(120px, 27vw, 400px);
+      line-height: 1;
+      color: #000;
+      user-select: none;
+      padding-top: clamp(40px, 5vw, 80px);
+    }
+    .initials__letter { letter-spacing: -0.02em; }
+    .initials__dash {
+      display: inline-block;
+      /* size relative to font */
+      width:  0.19em;
+      height: 0.06em;
+      background: #000;
+      margin: 0 0.05em;
+      flex-shrink: 0;
+      /* optical center: Outfit cap-height ~72% → caps center at ~0.36em above baseline
+         flex align-items:center aligns to element center → shift up slightly */
+      margin-bottom: 0.15em;
+    }
 
-.home-hero__m { letter-spacing: -0.02em; }
+    /* ROLE */
+    .hero__role {
+      position: absolute;
+      top: calc(80px + clamp(40px, 5vw, 80px));
+      right: 80px;
+      font-size: clamp(20px, 2.5vw, 36px);
+      font-weight: 400;
+      color: #3d3d3d;
+    }
 
-/* Tyre: підіймаємо через transform щоб стояло по центру капітальних літер */
-.home-hero__dash {
-  display: block;
-  width:  0.18em;
-  height: 0.055em;
-  background: var(--color-text);
-  margin: 0 0.05em;
-  flex-shrink: 0;
-  /* Outfit cap-height ≈ 0.73em, so center of caps = -0.365em from baseline.
-     Dash center = -height/2. Offset = cap_center - dash_center ≈ -0.34em */
-  transform: translateY(-0.34em);
-}
+    /* INTRO */
+    .hero__intro {
+      margin-top: clamp(40px, 4vw, 60px);
+      font-size: clamp(28px, 3.8vw, 54px);
+      font-weight: 400;
+      color: #000;
+      line-height: 1.2;
+      max-width: 760px;
+    }
 
-.home-hero__v { letter-spacing: -0.02em; }
+    /* DETAIL */
+    .hero__detail {
+      position: absolute;
+      right: 80px;
+      bottom: 200px;
+      font-size: clamp(12px, 1vw, 15px);
+      font-weight: 300;
+      color: #3d3d3d;
+      text-align: right;
+      line-height: 1.7;
+    }
 
-/* ── Role — top right ── */
-.home-hero__role {
-  position: absolute;
-  top: clamp(40px, 6vw, 100px);
-  right: var(--grid-margin);
-  font-size: clamp(18px, 2.4vw, 36px);
-  font-weight: var(--fw-regular);
-  color: var(--color-text-secondary);
-  text-align: right;
-  white-space: nowrap;
-}
+    /* CTA */
+    .hero__cta {
+      display: inline-block;
+      margin-top: clamp(24px, 3vw, 40px);
+      font-size: 17px;
+      font-weight: 400;
+      color: #000;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      letter-spacing: 0.02em;
+    }
 
-/* ── Intro paragraph ── */
-.home-hero__intro {
-  margin-top: clamp(32px, 4vw, 64px);
-  font-size: clamp(26px, 3.6vw, 52px);
-  font-weight: var(--fw-regular);
-  color: var(--color-text);
-  line-height: 1.2;
-  max-width: 780px;
-}
+    /* MOBILE */
+    @media (max-width: 1024px) {
+      .nav { padding: 0 40px; }
+      .nav__links { gap: 40px; }
+      .hero { padding-left: 40px; padding-right: 40px; }
+      .hero__role { right: 40px; }
+      .hero__detail { right: 40px; }
+    }
 
-/* ── Small detail ── */
-.home-hero__detail {
-  position: absolute;
-  right: var(--grid-margin);
-  bottom: 180px;
-  font-size: clamp(11px, 0.95vw, 15px);
-  font-weight: var(--fw-light);
-  color: var(--color-text-secondary);
-  text-align: right;
-  line-height: 1.7;
-}
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; height: 64px; }
+      .nav__links { display: none; }
+      .nav__hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 4px;
+      }
+      .nav__hamburger span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: #000;
+      }
+      .hero {
+        padding-top: 64px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .hero__role {
+        position: static;
+        margin-top: 12px;
+        font-size: clamp(16px, 4vw, 22px);
+        text-align: left;
+      }
+      .hero__detail {
+        position: static;
+        margin-top: 20px;
+        text-align: left;
+      }
+      .hero__intro { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
 
-/* ── CTA ── */
-.home-hero__cta {
-  display: inline-block;
-  margin-top: clamp(20px, 2.5vw, 36px);
-  font-size: 17px;
-}
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">MARIA-VIKTORIA</a>
+    <ul class="nav__links">
+      <li><a href="cases.html">CASES</a></li>
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+    <button class="nav__hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-/* ── Responsive ── */
-@media (max-width: 1200px) {
-  .home-hero__intro { max-width: 680px; }
-}
+  <main class="hero">
 
-@media (max-width: 1024px) {
-  .home-hero__role {
-    position: static;
-    margin-top: 12px;
-    font-size: clamp(16px, 2.2vw, 26px);
-    text-align: left;
-    white-space: normal;
-  }
-  .home-hero__detail {
-    position: static;
-    margin-top: 20px;
-    text-align: left;
-  }
-  .home-hero__intro { max-width: 85%; }
-}
+    <div class="initials" aria-label="M-V">
+      <span class="initials__letter">M</span>
+      <span class="initials__dash" aria-hidden="true"></span>
+      <span class="initials__letter">V</span>
+    </div>
 
-@media (max-width: 768px) {
-  .home-hero__intro {
-    max-width: 100%;
-    font-size: clamp(22px, 6.5vw, 38px);
-  }
-  .home-hero__detail {
-    position: static;
-    text-align: left;
-  }
-}
+    <p class="hero__role">Junior UX/UI Designer</p>
+
+    <p class="hero__intro">Hello, I am Maria-Viktoria. I'm studying UX/UI design at KAMA school — and already building real things.</p>
+
+    <p class="hero__detail">Open to work · Based in Kyiv<br>Available for freelance &amp; full-time</p>
+
+    <a href="cases.html" class="hero__cta">VIEW MY WORK →</a>
+
+  </main>
+
+  <script>
+    const btn = document.querySelector('.nav__hamburger');
+    if (btn) btn.addEventListener('click', () => {
+      document.querySelector('.nav__links').style.display =
+        document.querySelector('.nav__links').style.display === 'flex' ? 'none' : 'flex';
+    });
+  </script>
+</body>
+</html>
