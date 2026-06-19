@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maria-viktoria-ux-ui.vercel.app/sitemap.xml
