@@ -4,7 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cases — Maria-Viktoria</title>
-  <meta name="description" content="UX/UI design case studies by Maria-Viktoria." />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="description" content="UX/UI design case studies by Maria-Viktoria: a tourism landing page and a full e-commerce ceramics shop with design system and personas." />
+  <meta name="author" content="Maria-Viktoria" />
+  <link rel="canonical" href="https://portfolio-mv-13.vercel.app/cases.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Cases — Maria-Viktoria" />
+  <meta property="og:description" content="UX/UI design case studies by Maria-Viktoria: a tourism landing page and a full e-commerce ceramics shop with design system and personas." />
+  <meta property="og:url" content="https://portfolio-mv-13.vercel.app/cases.html" />
+  <meta property="og:image" content="https://portfolio-mv-13.vercel.app/assets/images/covers/cover-ceramics.jpg" />
+  <meta property="og:site_name" content="Maria-Viktoria — Portfolio" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cases — Maria-Viktoria" />
+  <meta name="twitter:description" content="UX/UI design case studies by Maria-Viktoria: a tourism landing page and a full e-commerce ceramics shop with design system and personas." />
+  <meta name="twitter:image" content="https://portfolio-mv-13.vercel.app/assets/images/covers/cover-ceramics.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.bunny.net/css?family=outfit:300,400,600&display=swap" rel="stylesheet" />
@@ -14,14 +29,29 @@
     .case-cover-img {
       display: block;
       width: 100%;
-      height: auto;
-      aspect-ratio: 652 / 488;
-      object-fit: cover;
+      height: auto;          /* висота за пропорціями зображення — без обрізки */
+      object-fit: contain;
       border: 1px solid #d9d9d9;
       border-radius: 4px;
       transition: transform 0.3s, box-shadow 0.3s;
     }
     .case-cover-img:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.07); }
+  </style>
+  <style>
+    /* Scroll reveal — секції плавно проявляються знизу вгору */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      will-change: opacity, transform;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
   </style>
 </head>
 <body>
@@ -46,7 +76,7 @@
   <main class="page-wrapper">
 
     <!-- Case 01 -->
-    <section class="case-row section">
+    <section class="case-row section reveal">
       <div class="container case-row__inner case-row--right-image">
 
         <div class="case-row__content">
@@ -70,7 +100,7 @@
     <div class="container"><div class="divider"></div></div>
 
     <!-- Case 02 -->
-    <section class="case-row section">
+    <section class="case-row section reveal">
       <div class="container case-row__inner case-row--left-image">
 
         <a href="case-ceramics.html" class="case-row__image-wrap" aria-label="View Ceramics Online Shop case">
@@ -106,5 +136,23 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
 </body>
 </html>
